@@ -17,3 +17,16 @@ Use a simulate client to create socket connection with server and get the respon
     
     Server Side :
     1. Get the request and send respond.
+
+### Step Two
+Use a simulate server to create socket to listen localhost:8080 and send response.
+
+    Client Side:
+    1. Request localhost:8080 and wait the responce
+    
+    Server Side :
+    1. Create ServerSocket Object and listen to 8080 port.
+    2. Get the socket Object
+    3. Use socket Object to get the output stream.
+    4. Send the HTTP resonse part to client (browser)
+    5. Close the resource
