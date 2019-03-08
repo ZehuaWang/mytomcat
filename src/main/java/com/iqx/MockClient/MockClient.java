@@ -8,6 +8,7 @@ import java.net.Socket;
 /**
  * @author Eric
  * Use a java http client to request a web site and get the responce
+ * Notice : Close all the resource to avoid memory leak
  */
 public class MockClient {
 
