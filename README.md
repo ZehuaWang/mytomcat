@@ -43,3 +43,18 @@ Create a tomcat that can respond the client request for static resource
     3. Use output stream to send the respond line and respond header to the client
     4. Send the demo.html which is in memory to the client
     5. Release the respurce
+
+### Step Four
+Create a tomcat that can run a java code on the server and respond the result to the client
+
+    Client Side :
+    1. Same as above
+    
+    Server side :
+    1. Server read the Config data into a map
+    2. Get the http request 
+    3. parse the request path
+    4. Get the related path from map
+    5. Use reflection to create servlet in the memory
+    6. Send Http respond header to the client
+    7. Invoke the init and service method in the servlet
