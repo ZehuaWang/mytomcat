@@ -21,7 +21,7 @@ Use a simulate client to create socket connection with server and get the respon
 ### Step Two
 Use a simulate server to create socket to listen localhost:8080 and send response.
 
-    Client Side:
+    Client Side :
     1. Request localhost:8080 and wait the responce
     
     Server Side :
@@ -34,7 +34,7 @@ Use a simulate server to create socket to listen localhost:8080 and send respons
 ### Step Three
 Create a tomcat that can respond the client request for static resource
 
-    Client Side:
+    Client Side :
     1. Same as above
     
     Server Side :
