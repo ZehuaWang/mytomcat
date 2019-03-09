@@ -30,3 +30,16 @@ Use a simulate server to create socket to listen localhost:8080 and send respons
     3. Use socket Object to get the output stream.
     4. Send the HTTP resonse part to client (browser)
     5. Close the resource
+    
+### Step Three
+Create a tomcat that can respond the client request for static resource
+
+    Client Side:
+    1. Same as above
+    
+    Server Side :
+    1. Read the data from client side and analyze the resource path
+    2. Read demo.html into the memory of the server side
+    3. Use output stream to send the respond line and respond header to the client
+    4. Send the demo.html which is in memory to the client
+    5. Release the respurce
