@@ -45,7 +45,16 @@ public class ServerV2 {
                 is  = socket.getInputStream();
                 ops = socket.getOutputStream();
                 parse(is);
-                sendStaticResource(ops);
+                if(null != url) {
+                    if(url.indexOf(".") != -1) {
+                        //Send a static file
+                        sendStaticResource(ops);
+                    } else {
+                        //Send a dynamic resource
+                        sendDynamicResource(is,ops);
+                    }
+                }
+
             }
 
         } catch (IOException e) {
@@ -65,6 +74,21 @@ public class ServerV2 {
                 socket.close();
                 socket = null;
             }
+        }
+    }
+
+    private static void sendDynamicResource(InputStream is, OutputStream ops) throws Exception {
+
+        //Send the HTTP response line and header to client
+        ops.write("HTTP/1.1 200 ok\n".getBytes());
+        ops.write("Server:Apache\n".getBytes());
+        ops.write("Content-type:text/html;charset=utf-8\n".getBytes());
+        if(map.containsKey(url)) {
+            String value = map.get(url);
+            Class clazz = Class.forName(value);
+            Servlet servlet = (Servlet) clazz.newInstance();
+            servlet.init();
+            servlet.Service(is,ops);
         }
     }
 
